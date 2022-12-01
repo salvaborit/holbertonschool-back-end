@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-    Module 0-gather_data_from_an_API
-"""
+""" Module 0-gather_data_from_an_API """
 import requests
 from pprint import pprint
 from sys import argv
