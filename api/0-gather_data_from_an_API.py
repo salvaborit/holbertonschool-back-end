@@ -12,7 +12,7 @@ if __name__ == '__main__':
         'https://jsonplaceholder.typicode.com/users/{}/todos'.format(argv[1]))
     completed = []
     for todo_item in resp.json():
-        if todo_item['completed'] == True:
+        if todo_item['completed'] is True:
             completed.append(todo_item['title'])
     total_tasks = len(resp.json())
     completed_tasks = len(completed)
