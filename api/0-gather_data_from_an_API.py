@@ -6,6 +6,7 @@ import requests
 from pprint import pprint
 from sys import argv
 
+
 if __name__ == '__main__':
 
     resp = requests.get(f'https://jsonplaceholder.typicode.com/users/{argv[1]}/todos')
