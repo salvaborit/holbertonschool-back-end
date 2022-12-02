@@ -27,7 +27,7 @@ if __name__ == '__main__':
         task_list.append(task_dict)
 
     final_dict = {}
-    final_dict['2'] = task_list
+    final_dict[int(argv[1])] = task_list
 
     with open(argv[1] + '.json', 'w') as file:
         dump(final_dict, file)
