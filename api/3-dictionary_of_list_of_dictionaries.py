@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Module 2-export_to_json
+Module 3-dictionary_of_list_of_dictionaries
 """
 from json import dump
 import requests
