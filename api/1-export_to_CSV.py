@@ -20,7 +20,7 @@ if __name__ == '__main__':
 
     with open('USER_ID.csv', 'w') as file:
         for todo_item in resp.json():
-            writer = csv.writer(file)
+            writer = csv.writer(file, quoting=csv.QUOTE_ALL)
             writer.writerow([str(todo_item['userId']),
                              str(user_name),
                              str(todo_item['completed']),
