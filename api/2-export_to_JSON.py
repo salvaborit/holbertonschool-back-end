@@ -11,23 +11,21 @@ from pprint import pprint
 
 if __name__ == '__main__':
 
+    user_id = int(argv[1])
+
     resp = requests.get(
-        'https://jsonplaceholder.typicode.com/users/{}'.format(argv[1]))
+        'https://jsonplaceholder.typicode.com/users/{}'.format(user_id))
     username = resp.json().get('username')
 
     resp = requests.get(
-        'https://jsonplaceholder.typicode.com/users/{}/todos'.format(argv[1]))
+        'https://jsonplaceholder.typicode.com/users/{}/todos'.format(user_id))
 
-    task_list = []
+    tasks = {}
+    tasks.setdefault(user_id, [])
     for task in resp.json():
-        task_dict = {}
-        task_dict['task'] = task['title']
-        task_dict['completed'] = 'true' if task['completed'] else 'false'
-        task_dict['username'] = username
-        task_list.append(task_dict)
+        tasks[user_id].append(dict(task=task['title'],
+                                   completed=task['completed'],
+                                   username=username))
 
-    final_dict = {}
-    final_dict[int(argv[1])] = task_list
-
-    with open(argv[1] + '.json', 'w') as file:
-        dump(final_dict, file)
+    with open(str(user_id) + '.json', 'w') as file:
+        dump(tasks, file)
