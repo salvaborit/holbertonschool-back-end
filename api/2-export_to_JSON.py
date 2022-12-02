@@ -6,8 +6,6 @@ from json import dump
 import requests
 from sys import argv
 
-from pprint import pprint
-
 
 if __name__ == '__main__':
 
