@@ -18,10 +18,10 @@ if __name__ == '__main__':
     resp = requests.get(
         'https://jsonplaceholder.typicode.com/users/{}/todos'.format(argv[1]))
 
-    with open('USER_ID.csv', 'w') as file:
+    with open(f'{argv[1]}.csv', 'w') as file:
         for todo_item in resp.json():
             writer = csv.writer(file, quoting=csv.QUOTE_ALL)
-            writer.writerow([str(todo_item['userId']),
-                             str(user_name),
-                             str(todo_item['completed']),
-                             str(todo_item['title'])])
+            writer.writerow([todo_item['userId'],
+                             user_name,
+                             todo_item['completed'],
+                             todo_item['title']])
