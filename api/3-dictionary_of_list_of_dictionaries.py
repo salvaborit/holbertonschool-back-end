@@ -5,8 +5,6 @@ Module 2-export_to_json
 from json import dump
 import requests
 
-from pprint import pprint
-
 
 if __name__ == '__main__':
 
